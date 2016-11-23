@@ -2,8 +2,6 @@ package rasterdata;
 
 import java.util.Optional;
 
-import annotations.NotNull;
-
 /**
  * Represents raster image of pixels of the given type
  * 
@@ -23,8 +21,7 @@ public interface RasterImage<PixelType> {
 	 *            row address
 	 * @return pixel value, empty Optional if address is invalid, not null
 	 */
-	@NotNull
-	Optional<PixelType> getPixel(int c, int r);
+    Optional<PixelType> getPixel(int c, int r);
 
 	/**
 	 * Returns a RasterImage with the value of the pixel at the given column and
@@ -39,9 +36,9 @@ public interface RasterImage<PixelType> {
 	 * @return RasterImage with pixel set to given value, this if address is
 	 *         invalid
 	 */
-	@NotNull
-	RasterImage<PixelType> withPixel(int c, int r, @NotNull PixelType pixel);
+    RasterImage<PixelType> withPixel(int c, int r, PixelType pixel);
 
+	/**
 	/**
 	 * Returns the number of rows of this raster image
 	 * 
@@ -55,4 +52,5 @@ public interface RasterImage<PixelType> {
 	 * @return number of columns
 	 */
 	int getWidth();
+	RasterImage<PixelType>clear(int color);
 }
